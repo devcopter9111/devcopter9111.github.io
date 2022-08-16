@@ -29,43 +29,43 @@ export const providerOptions = {
           "imtoken",
           "pillar",
         ],// 
-  }
-    },
-  },
-  "custom-binancechainwallet": {
-    display: {
-      logo: "../../assets/img/binance-logo.svg",
-      name: "Binance Chain Wallet",
-      description: "Connect to your Binance Chain Wallet"
-    },
-    package: true,
-    connector: async () => {
-      let provider = null;
-      if (typeof window.BinanceChain !== 'undefined') {
-        provider = window.BinanceChain;
-        try {
-          await provider.request({ method: 'eth_requestAccounts' })
-        } catch (error) {
-          throw new Error("User Rejected");
-        }
-      } else {
-        throw new Error("No Binance Chain Wallet found");
       }
-      return provider;
-    }
-  },
-  torus: {
-    package: Torus, // required
-    options: {
-      networkParams: {
-        host: "https://localhost:8545", // optional
-        chainId: 1337, // optional
-        networkId: 1337 // optional
-      },
-      config: {
-        buildEnv: "development" // optional
-      }
-    }
+    },
+  // },
+  // "custom-binancechainwallet": {
+  //   display: {
+  //     logo: "../../assets/img/binance-logo.svg",
+  //     name: "Binance Chain Wallet",
+  //     description: "Connect to your Binance Chain Wallet"
+  //   },
+  //   package: true,
+  //   connector: async () => {
+  //     let provider = null;
+  //     if (typeof window.BinanceChain !== 'undefined') {
+  //       provider = window.BinanceChain;
+  //       try {
+  //         await provider.request({ method: 'eth_requestAccounts' })
+  //       } catch (error) {
+  //         throw new Error("User Rejected");
+  //       }
+  //     } else {
+  //       throw new Error("No Binance Chain Wallet found");
+  //     }
+  //     return provider;
+  //   }
+  // },
+  // torus: {
+  //   package: Torus, // required
+  //   options: {
+  //     networkParams: {
+  //       host: "https://localhost:8545", // optional
+  //       chainId: 1337, // optional
+  //       networkId: 1337 // optional
+  //     },
+  //     config: {
+  //       buildEnv: "development" // optional
+  //     }
+  //   }
   }
 };
 export const networkParams = {
